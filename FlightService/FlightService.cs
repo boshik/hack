@@ -5,7 +5,7 @@ using System.Text;
 
 namespace FlightService
 {
-    public class Class1
+    public class FlightService
     {
     }
 }
