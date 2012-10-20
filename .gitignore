@@ -1,0 +1,73 @@
+# Compiled source #
+###################
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# Packages #
+############
+# it's better to unpack these files and commit the raw source
+# git has its own built in compression methods
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# Logs and databases #
+######################
+*.log
+*.sqlite
+*.mdf
+*.ldf
+
+# OS generated files #
+######################
+.DS_Store*
+ehthumbs.db
+Icon?
+Thumbs.db
+
+
+# Resharper #
+#############
+*[Rr]e[Ss]harper.user
+_ReSharper.*/
+
+
+# Visual Studio #
+#################
+[Dd]ebug/
+[Rr]elease/
+*.sln.cache
+*.suo
+*.csproj.user
+
+# Build Folders (you can keep bin if you'd like, to store dlls and pdbs)
+bin/
+obj/
+packages/
+binTest/
+
+# mstest test results
+TestResults
+*.ReSharper
+*.user
+
+
+/Vault.RoviAPI/Vault.RoviAPI.Site/Vault.RoviAPI.Site.Publish.xml
+build/TestResult.xml
+/build/test-results.xml
+/build/b.build
+/build/b.bat
+/build/test-results.xml
+
+####################################################################
+#Ignore all config files as auto generated and stored as a template#
+*.config
