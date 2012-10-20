@@ -29,14 +29,14 @@
                             <img src="http://cdn1.iconfinder.com/data/icons/musthave/48/Globe.png" border="0" style="padding-left:10px; padding-top:10px; padding-bottom:0px;"/>
 
                     </div>
-    <div class="ui-block-b" style="width:250px;padding-top:12px; padding-bottom:0px;">
+    <div class="ui-block-b" style="width:250px;padding-top:12px; padding-bottom:14px;">
                 <input type="search" name="search" id="search-basic" value="" placeholder="Type the amount you have" style="vertical-align:middle;" data-mini="true" />
 
                     </div>
-    <div class="ui-block-c" style="width:30px;padding-top:6px; padding-bottom:0px;">
-        <a href="index.html" data-role="button" data-icon="search" data-iconpos="notext" data-theme="a" data-inline="true">Searchn</a>
+    <div class="ui-block-c" style="width:30px;padding-top:6px; padding-bottom:14px;">
+        <a href="Default.aspx" data-role="button" data-icon="search" data-iconpos="notext" data-theme="a" data-inline="true">Search</a>
                     </div>
-            <div class="ui-block-d" style="width:30px;padding-top:6px; padding-bottom:0px;">
+            <div class="ui-block-d" style="width:30px;padding-top:6px; padding-bottom:14px;">
         <a href="#popupDialog" data-role="button" data-icon="gear" data-iconpos="notext" data-theme="a" data-inline="false" data-rel="popup" data-position-to="window">Search Settings</a>
                     </div>
         </div>
@@ -245,7 +245,7 @@
 
 <ul data-role="listview" data-theme="d" data-divider-theme="d">
     <li data-role="list-divider">Oct 26-Oct 28 / 2 Adults / 1000$<span class="ui-li-count">2</span></li>
-            <li><a href="#popupDialog2" data-rel="popup">
+            <li><a href="#popupDialog2" data-rel="popup" data-position-to="window">
                 
                 <h3>Minsk - Hotel Europe 5+ - Flight (5AM/4PM)</h3>
                     <p><strong>You've been invited to a meeting at Filament Group in Boston, MA</strong></p>
@@ -253,7 +253,7 @@
                     <p class="ui-li-aside"><strong>1000$</strong></p>
                 
             </a></li>
-            <li><a href="#popupDialog2" data-rel="popup">
+            <li><a href="#popupDialog2" data-rel="popup" data-position-to="window">
                 
                 <h3>Current Location - Do nothing - walking</h3>
                     <p><strong>You've been invited to a meeting at Filament Group in Boston, MA</strong></p>
