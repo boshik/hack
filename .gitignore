@@ -70,4 +70,4 @@ build/TestResult.xml
 
 ####################################################################
 #Ignore all config files as auto generated and stored as a template#
-*.config
+#*.config
