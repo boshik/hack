@@ -7,5 +7,6 @@ namespace HotelService
 {
     public class Class1
     {
+
     }
 }
