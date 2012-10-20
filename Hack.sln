@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hack", "Hack\Hack.csproj", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotelService", "HotelService\HotelService.csproj", "{6580371E-875C-448E-9CA9-B6C2E40E8A28}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlightService", "FlightService\FlightService.csproj", "{0F6041C8-DD4C-41AB-8507-4DFB57535DB5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,6 +21,10 @@ Global
 		{6580371E-875C-448E-9CA9-B6C2E40E8A28}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6580371E-875C-448E-9CA9-B6C2E40E8A28}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6580371E-875C-448E-9CA9-B6C2E40E8A28}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F6041C8-DD4C-41AB-8507-4DFB57535DB5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F6041C8-DD4C-41AB-8507-4DFB57535DB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F6041C8-DD4C-41AB-8507-4DFB57535DB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F6041C8-DD4C-41AB-8507-4DFB57535DB5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
