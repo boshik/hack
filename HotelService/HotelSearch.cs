@@ -8,10 +8,13 @@ namespace HotelService
 {
     public class HotelSearch
     {
-        public List<Hotel> GetAvaliableHotels(string city, int numberOfAdults, DateTime arrivalDate, DateTime departureDate)
+        public List<Entity.Hotel> GetAvaliableHotels(string city, int numberOfAdults, DateTime arrivalDate, DateTime departureDate)
         {
             var hotelList = GetHotelsData(city, numberOfAdults, arrivalDate, departureDate);
-            return null;
+            var result = hotelList.HotelSummary.
+                Select(hotel => new Entity.Hotel(hotel.name, hotel.highRate, hotel.rateCurrencyCode, @"http://media.expedia.com/" + hotel.thumbNailUrl)).ToList();
+
+            return result;
         }
 
         private HotelList GetHotelsData(string city, int numberOfAdults, DateTime arrivalDate, DateTime departureDate)
