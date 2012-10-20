@@ -7,5 +7,6 @@ namespace FlightService
 {
     public class FlightService
     {
+
     }
 }
