@@ -10,15 +10,12 @@ namespace HotelService
     {
         public List<Entity.Hotel> GetAvaliableHotels(string city, int numberOfAdults, DateTime arrivalDate, DateTime departureDate)
         {
-            var hotelList = GetHotelsData(city, numberOfAdults, arrivalDate, departureDate);
-            var result = hotelList.HotelSummary.
-                Select(hotel => new Entity.Hotel(hotel.name, hotel.highRate, hotel.rateCurrencyCode, @"http://media.expedia.com/" + hotel.thumbNailUrl)).ToList();
-
-            return result;
+            return GetHotelsData(city, numberOfAdults, arrivalDate, departureDate); 
         }
 
-        private HotelList GetHotelsData(string city, int numberOfAdults, DateTime arrivalDate, DateTime departureDate)
+        private List<Entity.Hotel> GetHotelsData(string city, int numberOfAdults, DateTime arrivalDate, DateTime departureDate)
         {
+            var result = new List<Entity.Hotel>();
             var hotelServicesClient = new HotelServicesClient();
 
             var request = new HotelListRequest();
@@ -34,7 +31,27 @@ namespace HotelService
             hotelServicesClient.Open();
 
             var hotelListResponse = hotelServicesClient.getList(request);
-            return hotelListResponse.HotelList;
+
+            var rooms = new List<HotelRoomResponse>();
+            foreach (HotelSummary hotelSummary in hotelListResponse.HotelList.HotelSummary)
+            {
+                var roomRequest = new HotelRoomAvailabilityRequest();
+                roomRequest.cid = 55505;
+                roomRequest.apiKey = "qb8es7zetcad5s5atuadxt3f";
+                roomRequest.hotelId = hotelSummary.hotelId;
+                roomRequest.arrivalDate = arrivalDate.ToString("MM/dd/yyyy");
+                roomRequest.departureDate = departureDate.ToString("MM/dd/yyyy");
+                roomRequest.RoomGroup = new[] { room };
+                var hotelRoomResponse = hotelServicesClient.getAvailability(roomRequest);
+                foreach (HotelRoomResponse roomResponse in hotelRoomResponse.HotelRoomResponse)
+                {
+                    result.Add(new Entity.Hotel(hotelSummary.name,
+                                                roomResponse.RateInfo.ChargeableRateInfo.commissionableUsdTotal,
+                                                roomResponse.RateInfo.ChargeableRateInfo.currencyCode,
+                                                @"http://media.expedia.com/" + hotelSummary.thumbNailUrl, city, roomResponse.rateDescription));
+                }
+            }
+            return result;
         }
     }
 }
