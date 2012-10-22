@@ -6,8 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title>Find The Trip</title>
 
+  <link rel="stylesheet" href="css/default/jquery.mobile.css"/> 
+
+  <!--   
+  
    <link rel="stylesheet" href="css/metro/jquery.mobile.metro.theme.css"/> 
-  <!--   <link rel="stylesheet" href="css/default/jquery.mobile.css"/> -->
+  
+  
+  -->
 
     <link href="css/jquery.mobile.fixedToolbar.polyfill.css" rel="stylesheet" type="text/css" />
 
@@ -141,32 +147,25 @@
 <body>
     <div data-role="page" class="type-interior" data-theme="a">
         <div data-role="header" data-id="foo2" data-position="fixed" >
-                <div class="ui-grid-a">
-                    <div class="ui-block-a" style="width: 99%; padding-top: 0px; padding-bottom: 0px;">
                         <div class="ui-grid-c">
                             <div class="ui-block-a" style="width: 70px">
                                 <img src="http://cdn1.iconfinder.com/data/icons/musthave/48/Globe.png" border="0"
                                     style="padding-left: 10px; padding-top: 10px; padding-bottom: 0px;" />
                             </div>
                             <div class="ui-block-b" style="width: 250px; padding-top: 12px; padding-bottom: 14px;">
-<label for="slider-mini">How much you plan to spend:</label>
-<input type="range" name="slider-mini" id="slider-mini" value="25" min="0" max="100" data-highlight="true" data-mini="true" />
+<label>Budget: 200$</label>
+<input type="range" name="slider-mini" id="slider-mini" value="200" min="100" max="3000" step="100" data-highlight="true" data-mini="true" />
                             </div>
                             <div class="ui-block-c" style="width: 30px; padding-top: 6px; padding-bottom: 14px;">
-                                <a href="Default.aspx" data-role="button" data-icon="search" data-iconpos="notext"
-                                    data-theme="a" data-inline="true">Search</a>
                             </div>
                             <div class="ui-block-d" style="width: 30px; padding-top: 6px; padding-bottom: 14px;">
-                                <a href="Settings.aspx" data-role="button" data-icon="gear" data-iconpos="notext"
-                                    data-theme="a" data-inline="false" data-rel="popup" data-position-to="window">Search
-                                    Settings</a>
                             </div>
                         </div>
-                    </div>
-                    <div class="ui-block-b" style="width: 1%">
-                    </div>
+                                                  <a href="Settings.aspx" data-role="button" data-icon="gear" data-iconpos="notext"
+                                    data-theme="a" data-inline="false" data-rel="popup" data-position-to="window" class="ui-btn-right">Search
+                                    Settings</a>
             </div>
-            </div>
+           
 
             <!-- /header -->
             <div data-role="content" style="height:150%">
@@ -200,7 +199,8 @@
             <div data-role="footer"  data-id="foo1" data-position="fixed" data-tap-toggle="false">
                 <div data-role="navbar" data-iconpos="bottom">
                     <ul>
-                        <li><a href="#" data-icon="search" class="ui-btn-active">Trips Found</a></li>
+                        <li><a href="#" data-icon="grid" class="ui-btn-active">List</a></li>
+                        <li><a href="#" data-icon="search">Map</a></li>
                         <li><a href="#" data-icon="star">Featured</a></li>
                         <li><a href="#" data-icon="info">About</a></li>
                     </ul>
