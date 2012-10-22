@@ -3,19 +3,144 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 <head>
-    <title>My Page</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
-    <script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
-    <script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
-    <script src="http://www.egrappler.com/contents/jQuery-compact-social-media-share-plugin/demo/jsShare.js"></script>
-    <link href="http://www.egrappler.com/contents/jQuery-compact-social-media-share-plugin/demo/jsShare.css"
-        rel="stylesheet" type="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Find The Trip</title>
+
+   <link rel="stylesheet" href="css/metro/jquery.mobile.metro.theme.css"/> 
+  <!--   <link rel="stylesheet" href="css/default/jquery.mobile.css"/> -->
+
+    <link href="css/jquery.mobile.fixedToolbar.polyfill.css" rel="stylesheet" type="text/css" />
+
+    <link href="css/progress-bar.css" rel="stylesheet" type="text/css" />
+    <link href="css/app-bar.css" rel="stylesheet" type="text/css" />
+    <link href="css/toggle-button.css" rel="stylesheet" type="text/css" />
+    <link href="css/mobiscroll-1.5.3.css" rel="stylesheet" type="text/css" />
+
+    <style type="text/css">
+        /* custom icons for toggle button*/
+        .ui-icon-demo-help,
+        .ui-icon-demo-set {
+            background-repeat: no-repeat;
+            background-position: 50% 50% ;
+            background-size: 30px 30px;
+        }
+
+        .ui-toggle-checked .ui-icon-demo-help{
+            background-image: url(images/help.light.png);
+        }
+
+        .ui-toggle-unchecked .ui-icon-demo-help{
+            background-image: url(images/help.dark.png);
+        }
+
+        .ui-toggle-checked .ui-icon-demo-set{
+            background-image: url(images/set.light.png);
+        }
+
+        .ui-toggle-unchecked .ui-icon-demo-set{
+            background-image: url(images/set.dark.png);
+        }
+
+        .ui-icon-demo-help,
+        .ui-icon-demo-set {
+            background-repeat: no-repeat;
+            background-position: 50% 50% ;
+            background-size: 30px 30px;
+        }
+
+        .ui-btn-up-a .ui-icon-demo-help,
+        .ui-btn-hover-a .ui-icon-demo-help,
+        .ui-btn-down-b .ui-icon-demo-help{
+            background-image: url(images/help.dark.png);
+        }
+
+        .ui-btn-up-b .ui-icon-demo-help,
+        .ui-btn-hover-b .ui-icon-demo-help,
+        .ui-btn-down-a .ui-icon-demo-help{
+            background-image: url(images/help.light.png);
+        }
+
+        .ui-btn-up-a .ui-icon-demo-set,
+        .ui-btn-hover-a .ui-icon-demo-set,
+        .ui-btn-down-b .ui-icon-demo-set{
+            background-image: url(images/set.dark.png);
+        }
+
+        .ui-btn-up-b .ui-icon-demo-set,
+        .ui-btn-hover-b .ui-icon-demo-set,
+        .ui-btn-down-a .ui-icon-demo-set{
+            background-image: url(images/set.light.png);
+        }
+
+
+    input.ui-slider-input {
+        display : none !important;
+    }
+
+</style>
+    </style>
+
+    <script src="js/jquery.js" type="text/javascript"></script>
+    <script src="css/metro/jquery.mobile.metro.theme.init.js" type="text/javascript"></script>
+    <script src="js/jquery.mobile.js" type="text/javascript"></script>
+    <script src="js/jquery.globalstylesheet.js" type="text/javascript"></script>
+    <script src="js/jquery.mobile.themeswitcher.js" type="text/javascript"></script>
+    <script src="js/jquery.mobile.fixedToolbar.polyfill.js" type="text/javascript"></script>
+
+
+    <script src="js/progress-bar.js" type="text/javascript"></script>
+    <script src="js/toggle-button.js" type="text/javascript"></script>
+    <script src="js/app-bar.js" type="text/javascript"></script>
+    <script src="js/jquery.easing.1.3.js" type="text/javascript"></script>
+    <script src="js/mobiscroll-1.5.3.js" type="text/javascript"></script>
+
+
+    <script type="text/javascript">
+        $.themesDir = 'css/';
+
+        $().ready(function () {
+            if (!$.browser.msie) {
+                $("#noteIeRequired").show();
+            }
+
+            // special title when run in Cordova environment
+            if (typeof window.external.Notify !== "undefined") {
+                document.getElementById("appTitle").innerHTML = "Theme overview";
+            }
+        });
+
+        // allows to use the page in NON cordova environment
+        if (typeof window.external.Notify !== "undefined") {
+
+            var head = document.getElementsByTagName("head")[0];
+
+            var sc1 = document.createElement("script");
+            sc1.src = "js/cordova-1.5.0.js";
+            (head || document.body).appendChild(sc1);
+
+
+            var sc2 = document.createElement("script");
+            sc2.src = "js/phoneTheme.js";
+            (head || document.body).appendChild(sc2);
+
+            var sc3 = document.createElement("script");
+            sc3.src = "js/jquery.cordova.metro.themeswitcher.js";
+            (head || document.body).appendChild(sc3);
+
+            var sc4 = document.createElement("script");
+            sc4.src = "js/backButtonHandler.js";
+            (head || document.body).appendChild(sc4);
+
+            var sc5 = document.createElement("script");
+            sc5.src = "js/dateTimePicker.js";
+            (head || document.body).appendChild(sc5);
+        }
+
+    </script>
 </head>
 <body>
-    <div data-role="page">
-        <div data-role="header" data-position="fixed" style="height: 68px;">
-            <div>
+    <div data-role="page" class="type-interior" data-theme="a">
+        <div data-role="header" data-id="foo2" data-position="fixed" >
                 <div class="ui-grid-a">
                     <div class="ui-block-a" style="width: 99%; padding-top: 0px; padding-bottom: 0px;">
                         <div class="ui-grid-c">
@@ -24,15 +149,15 @@
                                     style="padding-left: 10px; padding-top: 10px; padding-bottom: 0px;" />
                             </div>
                             <div class="ui-block-b" style="width: 250px; padding-top: 12px; padding-bottom: 14px;">
-                                <input type="search" name="search" id="search-basic" value="" placeholder="Type the amount you have"
-                                    style="vertical-align: middle;" data-mini="true" />
+<label for="slider-mini">How much you plan to spend:</label>
+<input type="range" name="slider-mini" id="slider-mini" value="25" min="0" max="100" data-highlight="true" data-mini="true" />
                             </div>
                             <div class="ui-block-c" style="width: 30px; padding-top: 6px; padding-bottom: 14px;">
                                 <a href="Default.aspx" data-role="button" data-icon="search" data-iconpos="notext"
                                     data-theme="a" data-inline="true">Search</a>
                             </div>
                             <div class="ui-block-d" style="width: 30px; padding-top: 6px; padding-bottom: 14px;">
-                                <a href="#popupDialog" data-role="button" data-icon="gear" data-iconpos="notext"
+                                <a href="Settings.aspx" data-role="button" data-icon="gear" data-iconpos="notext"
                                     data-theme="a" data-inline="false" data-rel="popup" data-position-to="window">Search
                                     Settings</a>
                             </div>
@@ -40,209 +165,14 @@
                     </div>
                     <div class="ui-block-b" style="width: 1%">
                     </div>
-                </div>
             </div>
+            </div>
+
             <!-- /header -->
-            <div data-role="popup" id="popupDialog2" data-overlay-theme="a" data-theme="c" style="max-width: 800px;"
-                class="ui-corner-all">
-                <div data-role="header" data-theme="a" class="ui-corner-top">
-                    <h1>
-                        Trip Details</h1>
-                </div>
-                <div data-role="content" data-theme="d" class="ui-corner-bottom ui-content">
-                    <ul data-role="listview" data-inset="true">
-                        <li><a href="index.html">
-                            <h3>
-                                Flight Details</h3>
-                            <p>
-                                <strong>Oct 26 Departure: 5AM Arrival:7AM MINSK 1</strong></p>
-                            <p>
-                                <strong>Oct 28 Departure: 5AM Arrival:7AM MAN TERM1</strong></p>
-                            <p class="ui-li-aside">
-                                <strong>400$</strong>PM</p>
-                        </a></li>
-                        <li><a href="index.html">
-                            <h3>
-                                Hotels Details</h3>
-                            <p>
-                                <strong>Oct 26 Departure: 5AM Arrival:7AM MINSK 1</strong></p>
-                            <p>
-                                <strong>Oct 28 Departure: 5AM Arrival:7AM MAN TERM1</strong></p>
-                            <p class="ui-li-aside">
-                                <strong>400$</strong>PM</p>
-                        </a></li>
-                        <li><a href="index.html">
-                            <h3>
-                                Events</h3>
-                            <p>
-                                <strong>Oct 26 Departure: 5AM Arrival:7AM MINSK 1</strong></p>
-                            <p>
-                                <strong>Oct 28 Departure: 5AM Arrival:7AM MAN TERM1</strong></p>
-                            <p class="ui-li-aside">
-                                <strong>400$</strong>PM</p>
-                        </a></li>
-                    </ul>
-                    <a href="#" data-role="button" data-inline="true" data-rel="back" data-theme="c">Close</a>
-                    <a href="#" data-role="button" data-inline="true" data-rel="back" data-transition="flow"
-                        data-theme="b" style="float: right">Buy</a>
-                </div>
-            </div>
-            <div data-role="popup" id="popupDialog" data-overlay-theme="a" data-theme="c" style="max-width: 800px;"
-                class="ui-corner-all">
-                <div data-role="header" data-theme="a" class="ui-corner-top">
-                    <h1>
-                        Search Settings</h1>
-                </div>
-                <div data-role="content" data-theme="d" class="ui-corner-bottom ui-content">
-                    <fieldset data-role="controlgroup" data-type="horizontal">
-                        <legend>From:</legend>
-                        <label for="select-choice-month">
-                            Month</label>
-                        <select name="select-choice-month" id="select-choice-month">
-                            <option value="jan">Jan</option>
-                            <option value="dec">Dec</option>
-                            <option value="feb">Feb</option>
-                            <option value="mar">Mar</option>
-                            <option value="apr">Apr</option>
-                            <option value="may">May</option>
-                            <option value="jun">Jun</option>
-                            <option value="jul">Jul</option>
-                            <option value="aug">Aug</option>
-                            <option value="sep">Sep</option>
-                            <option value="oct">Oct</option>
-                            <option value="nov">Nov</option>
-                            <option value="dec">Dec</option>
-                        </select>
-                        <label for="select-choice-day">
-                            Day</label>
-                        <select name="select-choice-day" id="select-choice-day">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                            <option value="7">7</option>
-                            <option value="8">8</option>
-                            <option value="9">9</option>
-                            <option value="10">10</option>
-                            <option value="11">11</option>
-                            <option value="12">13</option>
-                            <option value="13">14</option>
-                            <option value="15">15</option>
-                        </select>
-                        <label for="select-choice-year">
-                            Year</label>
-                        <select name="select-choice-year" id="select-choice-year">
-                            <option value="2011">2012</option>
-                            <option value="2011">2011</option>
-                            <option value="2010">2010</option>
-                            <option value="2009">2009</option>
-                            <option value="2008">2008</option>
-                            <option value="2007">2007</option>
-                            <option value="2006">2006</option>
-                            <option value="2005">2005</option>
-                            <option value="2004">2004</option>
-                        </select>
-                    </fieldset>
-                    <fieldset data-role="controlgroup" data-type="horizontal">
-                        <legend>To:</legend>
-                        <label for="select-choice-month">
-                            Month</label>
-                        <select name="select-choice-month" id="select-choice-month">
-                            <option value="jan">Jan</option>
-                            <option value="dec">Dec</option>
-                            <option value="feb">Feb</option>
-                            <option value="mar">Mar</option>
-                            <option value="apr">Apr</option>
-                            <option value="may">May</option>
-                            <option value="jun">Jun</option>
-                            <option value="jul">Jul</option>
-                            <option value="aug">Aug</option>
-                            <option value="sep">Sep</option>
-                            <option value="oct">Oct</option>
-                            <option value="nov">Nov</option>
-                            <option value="dec">Dec</option>
-                        </select>
-                        <label for="select-choice-day">
-                            Day</label>
-                        <select name="select-choice-day" id="select-choice-day">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                            <option value="7">7</option>
-                            <option value="8">8</option>
-                            <option value="9">9</option>
-                            <option value="10">10</option>
-                            <option value="11">11</option>
-                            <option value="12">13</option>
-                            <option value="13">14</option>
-                            <option value="15">15</option>
-                        </select>
-                        <label for="select-choice-year">
-                            Year</label>
-                        <select name="select-choice-year" id="select-choice-year">
-                            <option value="2011">2012</option>
-                            <option value="2011">2011</option>
-                            <option value="2010">2010</option>
-                            <option value="2009">2009</option>
-                            <option value="2008">2008</option>
-                            <option value="2007">2007</option>
-                            <option value="2006">2006</option>
-                            <option value="2005">2005</option>
-                            <option value="2004">2004</option>
-                        </select>
-                    </fieldset>
-                    <div class="ui-grid-b">
-                        <div class="ui-block-a">
-                            <fieldset data-role="controlgroup" data-type="horizontal">
-                                <legend>Adults:</legend>
-                                <label for="select-choice-month">
-                                    Adults</label>
-                                <select name="select-choice-month" id="select-choice-month">
-                                    <option value="jan">1</option>
-                                    <option value="dec">2</option>
-                                    <option value="feb">3</option>
-                                    <option value="mar">4</option>
-                                </select>
-                            </fieldset>
-                        </div>
-                        <div class="ui-block-b">
-                            <fieldset data-role="controlgroup" data-type="horizontal">
-                                <legend>Childrens:</legend>
-                                <label for="select-choice-month">
-                                    Childrens</label>
-                                <select name="select-choice-month" id="select-choice-month">
-                                    <option value="jan">1</option>
-                                    <option value="dec">2</option>
-                                    <option value="feb">3</option>
-                                    <option value="mar">4</option>
-                                </select>
-                            </fieldset>
-                        </div>
-                        <div class="ui-block-c">
-                            <fieldset data-role="controlgroup" data-type="horizontal">
-                                <legend>Transport:</legend>
-                                <label for="select-choice-month">
-                                    Transport</label>
-                                <select name="select-choice-month" id="select-choice-month">
-                                    <option value="jan">Flight</option>
-                                </select>
-                            </fieldset>
-                        </div>
-                    </div>
-                    <a href="#" data-role="button" data-inline="true" data-rel="back" data-theme="c">Close</a>
-                    <a href="#" data-role="button" data-inline="true" data-rel="back" data-transition="flow"
-                        data-theme="b" style="float: right">Apply</a>
-                </div>
-            </div>
-            <div data-role="content">
+            <div data-role="content" style="height:150%">
                 <ul data-role="listview" data-theme="d" data-divider-theme="d">
                     <li data-role="list-divider">Oct 26-Oct 28 / 2 Adults / 1000$<span class="ui-li-count">2</span></li>
-                    <li><a href="#popupDialog2" data-rel="popup" data-position-to="window">
+                    <li><a href="Details.aspx" data-rel="popup" data-position-to="window">
                         <h3>
                             Minsk - Hotel Europe 5+ - Flight (5AM/4PM)</h3>
                         <p>
@@ -253,7 +183,7 @@
                         <p class="ui-li-aside">
                             <strong>1000$</strong></p>
                     </a></li>
-                    <li><a href="#popupDialog2" data-rel="popup" data-position-to="window">
+                    <li><a href="Details.aspx" data-rel="popup" data-position-to="window">
                         <h3>
                             Current Location - Do nothing - walking</h3>
                         <p>
@@ -267,7 +197,7 @@
                 </ul>
             </div>
             <!-- /content -->
-            <div data-role="footer" data-position="fixed">
+            <div data-role="footer"  data-id="foo1" data-position="fixed" data-tap-toggle="false">
                 <div data-role="navbar" data-iconpos="bottom">
                     <ul>
                         <li><a href="#" data-icon="search" class="ui-btn-active">Trips Found</a></li>
@@ -277,8 +207,11 @@
                 </div>
                 <!-- /navbar -->
             </div>
-        </div>
         <!-- /page -->
+
+
+
+        </div>
 </body>
 </html>
 ​
