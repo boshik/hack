@@ -142,11 +142,10 @@
     </script>
 </head>
 <body>
-    <div data-role="page" class="type-interior" data-theme="a" style="padding-top:0px !important">
-        <div data-role="header" data-position="fixed" >
-
-                        <div class="ui-grid-c">
-                            <div class="ui-block-a" style="width: 70px">
+    <div data-role="page" class="type-interior" data-theme="a" style="padding-top:0px !important;">
+        <div data-role="header">
+                <div class="ui-grid-c">
+                            <div class="ui-block-a" style="width: 70px;">
                                 <img src="http://cdn1.iconfinder.com/data/icons/musthave/48/Globe.png" border="0"
                                     style="padding-left: 10px; padding-top: 10px; padding-bottom: 0px;" />
                             </div>
