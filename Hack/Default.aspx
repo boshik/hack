@@ -8,14 +8,12 @@
 
   <link rel="stylesheet" href="css/default/jquery.mobile.css"/> 
 
-  <!--   
-  
+  <% if (Request.QueryString["metro"] != null)
+     { %>
    <link rel="stylesheet" href="css/metro/jquery.mobile.metro.theme.css"/> 
-  
-  
-  -->
-
+  <% } else { %>
     <link href="css/jquery.mobile.fixedToolbar.polyfill.css" rel="stylesheet" type="text/css" />
+  <% } %>
 
     <link href="css/progress-bar.css" rel="stylesheet" type="text/css" />
     <link href="css/app-bar.css" rel="stylesheet" type="text/css" />
@@ -83,7 +81,6 @@
         display : none !important;
     }
 
-</style>
     </style>
 
     <script src="js/jquery.js" type="text/javascript"></script>
@@ -145,20 +142,21 @@
     </script>
 </head>
 <body>
-    <div data-role="page" class="type-interior" data-theme="a">
-        <div data-role="header" data-id="foo2" data-position="fixed" >
+    <div data-role="page" class="type-interior" data-theme="a" style="padding-top:0px !important">
+        <div data-role="header" data-position="fixed" >
+
                         <div class="ui-grid-c">
                             <div class="ui-block-a" style="width: 70px">
                                 <img src="http://cdn1.iconfinder.com/data/icons/musthave/48/Globe.png" border="0"
                                     style="padding-left: 10px; padding-top: 10px; padding-bottom: 0px;" />
                             </div>
-                            <div class="ui-block-b" style="width: 250px; padding-top: 12px; padding-bottom: 14px;">
-<label>Budget: 200$</label>
+                            <div class="ui-block-b" style="width: 250px; padding-top: 12px; padding-bottom: 24px;">
+<label>Available budget 200$</label>
 <input type="range" name="slider-mini" id="slider-mini" value="200" min="100" max="3000" step="100" data-highlight="true" data-mini="true" />
                             </div>
-                            <div class="ui-block-c" style="width: 30px; padding-top: 6px; padding-bottom: 14px;">
+                            <div class="ui-block-c" style="width: 30px; padding-top: 6px; padding-bottom: 24px;">
                             </div>
-                            <div class="ui-block-d" style="width: 30px; padding-top: 6px; padding-bottom: 14px;">
+                            <div class="ui-block-d" style="width: 30px; padding-top: 6px; padding-bottom: 24px;">
                             </div>
                         </div>
                                                   <a href="Settings.aspx" data-role="button" data-icon="gear" data-iconpos="notext"
@@ -168,7 +166,7 @@
            
 
             <!-- /header -->
-            <div data-role="content" style="height:150%">
+            <div data-role="content">
                 <ul data-role="listview" data-theme="d" data-divider-theme="d">
                     <li data-role="list-divider">Oct 26-Oct 28 / 2 Adults / 1000$<span class="ui-li-count">2</span></li>
                     <li><a href="Details.aspx" data-rel="popup" data-position-to="window">
